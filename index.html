@@ -1,0 +1,20 @@
+<html ng-app="PaulApp">
+	<head>
+		<title> AngularJS Tutorial </title>
+	</head>
+	<body ng-controller="ItemsCtrl as items">
+		<h1> AngularJS Tutorial </h1>
+		Search: <input type="text" ng-model="search">
+		<ul>
+			<li ng-repeat="item in filteredData = (items.data | filter:search)"> {{ item }} </li>
+		</ul>
+		{{ filteredData }}
+		<b ng-hide="filteredData.length"> No data </b> 
+		<form ng-submit="items.add(newItem); newItem=''">
+			<input type="text" ng-model="newItem">
+			<button type="submit"> Add </button>
+		</form>
+		<script type="text/javascript" src="angular.js"></script>
+		<script type="text/javascript" src="paul.js"></script>
+	</body>
+</html>
